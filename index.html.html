@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Toma! 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Quicksand,sans-serif;
+background:linear-gradient(180deg,#ffd6ea,#fff0f7);
+overflow-x:hidden;
+text-align:center;
+color:#ff4f8b;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+z-index:1;
+}
+
+.container{
+position:relative;
+z-index:5;
+padding:40px 20px;
+}
+
+h1{
+font-family:Pacifico,cursive;
+font-size:4rem;
+margin-top:30px;
+animation:bounce 2s infinite;
+}
+
+.subtitle{
+font-size:1.3rem;
+margin:15px auto;
+max-width:700px;
+}
+
+.card{
+margin:40px auto;
+background:white;
+border-radius:30px;
+padding:30px;
+max-width:700px;
+box-shadow:0 15px 40px rgba(255,105,180,.25);
+}
+
+button{
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:40px;
+background:#ff6fae;
+color:white;
+cursor:pointer;
+transition:.3s;
+margin-top:20px;
+}
+
+button:hover{
+transform:scale(1.08);
+background:#ff4f8b;
+}
+
+.hidden{
+display:none;
+}
+
+.message{
+font-size:1.2rem;
+line-height:1.8;
+margin-top:25px;
+}
+
+.gallery{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.gallery img{
+width:180px;
+height:180px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.08) rotate(-3deg);
+}
+
+.music{
+margin-top:25px;
+}
+
+footer{
+margin:50px;
+font-size:18px;
+}
+
+.balloon{
+position:fixed;
+bottom:-150px;
+font-size:50px;
+animation:float linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-120vh);
+}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+.sparkle{
+position:fixed;
+color:white;
+font-size:18px;
+animation:sparkle 5s linear infinite;
+}
+
+@keyframes sparkle{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-20vh);}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<div class="container">
+
+<h1>🎀 Happy Birthday Toma! 🎀</h1>
+
+<p class="subtitle">
+A little birthday surprise made especially for you 💖
+</p>
+
+<div class="card">
+
+<h2>✨ Today is YOUR day! ✨</h2>
+
+<p style="margin-top:15px;">
+Click the button below 💝
+</p>
+
+<button onclick="showMessage()">
+🎁 Open Your Surprise
+</button>
+
+<div id="secret" class="hidden">
+
+<div class="message">
+
+<p>
+💗 Happy Birthday, Toma! 💗
+</p>
+
+<br>
+
+<p>
+I hope today brings you endless smiles,
+beautiful memories,
+lots of cake 🍰,
+cute moments,
+and everything your heart wishes for.
+</p>
+
+<br>
+
+<p>
+May this year be full of happiness,
+peace,
+love,
+and dreams coming true.
+You deserve all the beautiful things in the world.
+🌸✨
+</p>
+
+<br>
+
+<p>
+Never stop smiling,
+never stop shining,
+and always remember how special you are.
+🎀
+</p>
+
+<br>
+
+<p style="font-size:26px;">
+Have the sweetest birthday ever! 🎂💕
+</p>
+
+</div>
+
+<div class="gallery">
+
+<!-- Replace these with your own cute images if you want -->
+<img src="C:\Users\afc\Downloads\5e3b55db98623e9e8c098cda4888e614.jpg" alt="Cute placeholder">
+
+<img src="C:\Users\afc\Downloads\1320f12e7f669fe0f65fb4aa83fc3585.jpg" alt="Cute placeholder">
+
+<img src="C:\Users\afc\Downloads\1309acf77708ed52a98e3547c6388cdb.jpg" alt="Cute placeholder">
+
+</div>
+
+
+</div>
+
+</div>
+
+<footer>
+Made with lots of love for Toma 💕
+</footer>
+
+</div>
+
+<script>
+
+function showMessage(){
+document.getElementById("secret").style.display="block";
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+}
+
+function toggleMusic(){
+const song=document.getElementById("song");
+
+if(song.paused){
+song.play();
+}else{
+song.pause();
+}
+}
+
+for(let i=0;i<15;i++){
+
+let b=document.createElement("div");
+
+b.className="balloon";
+
+b.innerHTML=["🎈","💖","🎀","🌸"][Math.floor(Math.random()*4)];
+
+b.style.left=Math.random()*100+"vw";
+
+b.style.animationDuration=(8+Math.random()*8)+"s";
+
+b.style.fontSize=(30+Math.random()*30)+"px";
+
+document.body.appendChild(b);
+
+}
+
+for(let i=0;i<40;i++){
+
+let s=document.createElement("div");
+
+s.className="sparkle";
+
+s.innerHTML="✨";
+
+s.style.left=Math.random()*100+"vw";
+
+s.style.animationDuration=(3+Math.random()*5)+"s";
+
+s.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(s);
+
+}
+
+const canvas=document.getElementById("confetti");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+const pieces=[];
+
+for(let i=0;i<180;i++){
+pieces.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*6+2,
+d:Math.random()*180,
+color:["#ff69b4","#ffb6d9","#ffffff","#ffc0cb","#ffd700"][Math.floor(Math.random()*5)]
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+pieces.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle=p.color;
+ctx.fill();
+
+p.y+=2;
+p.x+=Math.sin(p.d);
+
+if(p.y>canvas.height){
+p.y=-10;
+}
+});
+
+requestAnimationFrame(draw);
+}
+
+draw();
+
+</script>
+
+</body>
+</html>
